@@ -27,7 +27,7 @@ public class PasswordsChecker implements Callable<String> {
     @Override
     public String call() throws Exception {
         String password;
-        while (!"STOP".equals(password = passwordsQueue.take())) {
+        while (!BruteForce.STOP_SIGNAL_MESSAGE.equals(password = passwordsQueue.take())) {
             if (sendPOST(password)) {
                 return password;
             }

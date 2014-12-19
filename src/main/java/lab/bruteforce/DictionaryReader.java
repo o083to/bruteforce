@@ -29,7 +29,7 @@ public class DictionaryReader implements Runnable {
                 e.printStackTrace();
             }
             for (int i = 0; i < BruteForce.THREADS_COUNT; i++) {
-                passwordsQueue.put("STOP");
+                passwordsQueue.put(BruteForce.STOP_SIGNAL_MESSAGE);
             }
         } catch (InterruptedException e) {
             System.out.println("Stop reading dictionary");
